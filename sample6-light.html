@@ -29,7 +29,7 @@
     var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
   
 //ドーナッツ
-var torusGeometry = new THREE.TorusGeometry( 0.5, 0.2, 6, 12 ); 
+var torusGeometry = new THREE.TorusGeometry( 1, 0.2, 6, 12 ); 
 //半径、ドーナッツの太さ、ドーナッツのチューブ方向の分割数、水平方向の分割数
 var torusMaterial = new THREE. MeshPhongMaterial( { color: 0x0000ff } );
 var torus = new THREE.Mesh( torusGeometry, torusMaterial );
