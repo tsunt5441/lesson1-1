@@ -8,7 +8,8 @@
   <!-- <script src="./three.js"></script> -->
   <!-- three.jsを読み込む(CDN) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js"></script>
-
+  <script src="https://unpkg.com/three@0.137.4/examples/js/controls/OrbitControls.js"></script>
+  
 </head>
 <body>
  <script>
@@ -28,6 +29,9 @@
     // カメラを作成
     var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
   
+    // カメラコントローラーを作成
+    const controls = new THREE.OrbitControls(camera, document.body); 
+    
 //ドーナッツ
 var torusGeometry = new THREE.TorusGeometry( 1, 0.2, 6, 12 ); 
 //半径、ドーナッツの太さ、ドーナッツのチューブ方向の分割数、水平方向の分割数
@@ -59,7 +63,10 @@ scene.add( torus );
       torus.rotation.x += 0.01;
       torus.rotation.y += 0.01;
   
+      //レンダリング
       renderer.render(scene, camera);
+      requestAnimatiorFrame(update);
+
     };
     update();
   }
